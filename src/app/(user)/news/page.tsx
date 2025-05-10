@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import Filtering from "@/src/components/Filtering";
 import Section1 from "@/src/components/news/Section1";
 import Slider from "@/src/components/Slider";

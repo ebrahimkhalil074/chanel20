@@ -1,8 +1,6 @@
 /* eslint-disable prettier/prettier */
 
 import CategorySection from "@/src/components/Category";
-import Latest from "@/src/components/video/Latest";
-import PopularNews from "@/src/components/video/PopularNews";
 
 const VideoPage = () => {
   const data =  [
@@ -19,7 +17,9 @@ const VideoPage = () => {
    <div>
    {/* <Latest />
    <PopularNews /> */}
-   <CategorySection title="গানে গানে আড্ডা" items={data} categorySlug="music" />
+   <CategorySection categorySlug="music" items={data} title="Latest News" />
+   <CategorySection categorySlug="music" items={data} title="Popular News" />
+   <CategorySection categorySlug="music" items={data} title="গানে গানে আড্ডা" />
    </div>
   );
 };

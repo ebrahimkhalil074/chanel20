@@ -1,10 +1,12 @@
 /* eslint-disable prettier/prettier */
 'use client';
 
-import Section4 from '@/src/components/news/Section4';
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
+
+import Section4 from '@/src/components/news/Section4';
 import 'react-datepicker/dist/react-datepicker.css';
+import Slider2 from '@/src/components/Slider2';
 
 const Archive = () => {
   const [day, setDay] = useState(1);
@@ -67,7 +69,7 @@ const Archive = () => {
   return (
     <div className="grid grid-cols-12 gap-4 p-6 max-w-7xl mx-auto font-sans">
       {/* Left Side: Dropdown Filter */}
-      <div className="col-span-8 border rounded p-6 shadow">
+      <div className="col-span-12 lg:col-span-8 border rounded p-6 shadow">
         <div className="flex flex-wrap items-center gap-4 mb-6">
           <select
             className="border border-gray-300 rounded px-4 py-2 text-sm"
@@ -112,7 +114,7 @@ const Archive = () => {
         {/* Results Section */}
         {results ? (
           <div className="mt-6">
-            <h2 className="text-lg font-semibold text-gray-700 mb-2">{results.message}</h2>
+            <h2 className="text-lg font-semibold text-gray-700 mb-2">{results?.message}</h2>
             <ul className="list-disc list-inside space-y-1 text-gray-800">
               {results.items.map(item => (
                 <li key={item.id}>{item.title}</li>
@@ -125,12 +127,20 @@ const Archive = () => {
       </div>
 
       {/* Right Side: Calendar */}
-      <div className="col-span-4 flex justify-center items-start border rounded p-4 shadow">
-        <DatePicker
+      <div className=" col-span-12 lg:col-span-4 flex justify-center items-center border rounded  shadow">
+       <div>
+      <div>
+      <DatePicker
           inline
           selected={selectedDate}
           onChange={handleCalendarChange}
         />
+      </div>
+     
+     <div className='w-full'>
+      <Slider2 />
+     </div>
+       </div>
       </div>
      <div className='col-span-12'>
      <Section4 />
