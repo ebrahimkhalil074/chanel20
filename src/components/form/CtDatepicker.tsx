@@ -1,0 +1,69 @@
+/* eslint-disable prettier/prettier */
+
+// // import { Controller } from "react-hook-form";
+
+// // import { IInput } from "@/src/types";
+// // import { DatePicker } from "@heroui/date-picker";
+
+// // interface IProps extends IInput {}
+
+// // const FxDatepicker = ({label,name,defaultValue}:IProps) => {
+// //   return (
+// //    <Controller
+// //    name={name}
+// //    render={({field :{value,...fields}})=>{
+// //    return(
+// //     <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
+// //     <DatePicker 
+// //       label={label}
+// //       {...fields}
+// //       variant="bordered"
+// //       defaultValue={defaultValue}
+// //       className="max-w-[284px]"
+// //       // isRequired
+// //     />
+// // </div>
+
+// //    )
+
+
+// //    }}
+// //    />
+// //   );
+// // };
+
+// // export default FxDatepicker;
+
+import { Controller } from "react-hook-form";
+import { DatePicker } from "@heroui/date-picker";
+
+import { IInput } from "@/src/types";
+
+interface IProps extends IInput {}
+
+const CtDatepicker = ({ label, name }: IProps) => {
+  return (
+    <Controller
+      name={name}
+      render={({ field: { value, ...fields } }) => {
+        return (
+          <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
+            <DatePicker
+              label={label}
+              {...fields}
+             
+              className="max-w-[284px]"
+              variant="bordered"
+            />
+          </div>
+        );
+      }}
+    />
+  );
+};
+
+export default CtDatepicker;
+
+
+
+

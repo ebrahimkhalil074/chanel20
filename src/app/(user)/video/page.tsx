@@ -1,15 +1,25 @@
 /* eslint-disable prettier/prettier */
 
+import CategorySection from "@/src/components/Category";
 import Latest from "@/src/components/video/Latest";
 import PopularNews from "@/src/components/video/PopularNews";
 
 const VideoPage = () => {
+  const data =  [
+      { id: 1, title: 'Song 1', videoUrl: 'https://www.youtube.com/embed/xyz1' },
+      { id: 2, title: 'Song 2', videoUrl: 'https://www.youtube.com/embed/xyz2' },
+      { id: 3, title: 'Song 3', videoUrl: 'https://www.youtube.com/embed/xyz3' },
+      { id: 4, title: 'Match 1', videoUrl: 'https://www.youtube.com/embed/abc1' },
+      { id: 5, title: 'Match 2', videoUrl: 'https://www.youtube.com/embed/abc2' },
+      { id: 6, title: 'Match 3', videoUrl: 'https://www.youtube.com/embed/abc3' },
+    ]
   
 
   return (
    <div>
-   <Latest />
-   <PopularNews />
+   {/* <Latest />
+   <PopularNews /> */}
+   <CategorySection title="গানে গানে আড্ডা" items={data} categorySlug="music" />
    </div>
   );
 };

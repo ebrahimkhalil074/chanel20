@@ -12,6 +12,7 @@ import { Providers } from "./provider";
 import { siteConfig } from "@/src/config/site";
 import { fontSans } from "@/src/config/fonts";
 import { Navbar } from "@/src/components/navbar";
+import Footer from "../components/Footer";
 
 export const metadata: Metadata = {
   title: {
@@ -62,17 +63,9 @@ export default function RootLayout({
               <Marque title='সর্বশেষ সংবাদ' data={newsItems} />
             </div>
             <main className="flex-grow">{children}</main>
-            <footer className="w-full flex items-center justify-center py-3 border-2 ">
-              <Link
-                isExternal
-                className="flex items-center gap-1 text-current"
-                href="https://heroui.com?utm_source=next-app-template"
-                title="heroui.com homepage"
-              >
-                <span className="text-default-600">Powered by</span>
-                <p className="text-primary">HeroUI</p>
-              </Link>
-            </footer>
+           
+             <Footer />
+          
           </div>
         </Providers>
       </body>

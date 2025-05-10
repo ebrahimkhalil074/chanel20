@@ -1,10 +1,12 @@
 /* eslint-disable prettier/prettier */
 'use client';
+
+import Section4 from '@/src/components/news/Section4';
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-const DateFilter = () => {
+const Archive = () => {
   const [day, setDay] = useState(1);
   const [month, setMonth] = useState('January');
   const [year, setYear] = useState(2025);
@@ -20,7 +22,26 @@ const DateFilter = () => {
   const years = Array.from({ length: 50 }, (_, i) => 2000 + i);
   const categories = ['অনলাইন সংস্করণ', 'প্রিন্ট সংস্করণ'];
 
-  const handleSearch = (date = selectedDate) => {
+  const handleSearch = () => {
+    const monthIndex = months.indexOf(month);
+    const date = new Date(year, monthIndex, day);
+
+    setSelectedDate(date); // sync with calendar
+
+    const formatted = `${day} ${month} ${year} - ${category}`;
+
+    setResults({
+      message: `ফলাফল দেখানো হচ্ছে: ${formatted}`,
+      items: [
+        { id: 1, title: 'ডামি আর্টিকেল ১' },
+        { id: 2, title: 'ডামি আর্টিকেল ২' },
+        { id: 3, title: 'ডামি আর্টিকেল ৩' },
+        { id: 4, title: 'ডামি আর্টিকেল ৪' },
+      ]
+    });
+  };
+
+  const handleCalendarChange = (date) => {
     const selectedDay = date.getDate();
     const selectedMonth = months[date.getMonth()];
     const selectedYear = date.getFullYear();
@@ -33,7 +54,7 @@ const DateFilter = () => {
     const formatted = `${selectedDay} ${selectedMonth} ${selectedYear} - ${category}`;
 
     setResults({
-      message: `Showing results for: ${formatted}`,
+      message: `ফলাফল দেখানো হচ্ছে: ${formatted}`,
       items: [
         { id: 1, title: 'ডামি আর্টিকেল ১' },
         { id: 2, title: 'ডামি আর্টিকেল ২' },
@@ -43,14 +64,11 @@ const DateFilter = () => {
     });
   };
 
-  const handleCalendarChange = (date) => {
-    handleSearch(date);
-  };
-
   return (
-    <div className="p-6 max-w-5xl mx-auto font-sans">
-      <div className="bg-white shadow rounded-lg p-6">
-        <div className="flex flex-wrap items-center gap-3 mb-6">
+    <div className="grid grid-cols-12 gap-4 p-6 max-w-7xl mx-auto font-sans">
+      {/* Left Side: Dropdown Filter */}
+      <div className="col-span-8 border rounded p-6 shadow">
+        <div className="flex flex-wrap items-center gap-4 mb-6">
           <select
             className="border border-gray-300 rounded px-4 py-2 text-sm"
             value={day}
@@ -85,20 +103,13 @@ const DateFilter = () => {
 
           <button
             className="bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded text-sm transition"
-            onClick={() => handleSearch()}
+            onClick={handleSearch}
           >
-            Search
+            খুঁজুন
           </button>
         </div>
 
-        <div className="border rounded shadow-sm p-2 inline-block">
-          <DatePicker
-            inline
-            selected={selectedDate}
-            onChange={handleCalendarChange}
-          />
-        </div>
-
+        {/* Results Section */}
         {results ? (
           <div className="mt-6">
             <h2 className="text-lg font-semibold text-gray-700 mb-2">{results.message}</h2>
@@ -109,11 +120,23 @@ const DateFilter = () => {
             </ul>
           </div>
         ) : (
-          <div className="mt-6 text-gray-500 text-md">No Data</div>
+          <div className="mt-6 text-gray-500 text-md">কোনো তথ্য পাওয়া যায়নি</div>
         )}
       </div>
+
+      {/* Right Side: Calendar */}
+      <div className="col-span-4 flex justify-center items-start border rounded p-4 shadow">
+        <DatePicker
+          inline
+          selected={selectedDate}
+          onChange={handleCalendarChange}
+        />
+      </div>
+     <div className='col-span-12'>
+     <Section4 />
+     </div>
     </div>
   );
 };
 
-export default DateFilter;
+export default Archive;

@@ -64,7 +64,7 @@ export default function Filtering() {
                     <Link
                       key={subItem}
                       className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                      href={`/category/${encodeURIComponent(subItem)}`}
+                      href={`/news/category/${(subItem)}`}
                     >
                       {subItem}
                     </Link>
@@ -104,7 +104,7 @@ export default function Filtering() {
                     <Link
                       key={sub}
                       className="block text-gray-600 hover:text-blue-600"
-                      href={`/category/${encodeURIComponent(sub)}`}
+                      href={`/news/category/${encodeURIComponent(sub)}`}
                     >
                       {sub}
                     </Link>
