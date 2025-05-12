@@ -4,7 +4,7 @@ import Link from "next/link";
 
 interface CategorySectionProps {
   title: string;
-  items: { id: string; videoUrl: string; title: string }[];
+  items: { id: number; videoUrl: string; title: string }[];
   categorySlug: string;
 }
 const CategorySection = ({ title, items, categorySlug }: CategorySectionProps) => (

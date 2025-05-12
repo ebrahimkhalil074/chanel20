@@ -205,28 +205,33 @@ const Archive: React.FC = () => {
     });
   };
 
-  const handleCalendarChange = (date: Date) => {
-    const selectedDay = date.getDate();
-    const selectedMonth = months[date.getMonth()];
-    const selectedYear = date.getFullYear();
-
-    setDay(selectedDay);
-    setMonth(selectedMonth);
-    setYear(selectedYear);
-    setSelectedDate(date);
-
-    const formatted = `${selectedDay} ${selectedMonth} ${selectedYear} - ${category}`;
-
-    setResults({
-      message: `ফলাফল দেখানো হচ্ছে: ${formatted}`,
-      items: [
-        { id: 1, title: 'ডামি আর্টিকেল ১' },
-        { id: 2, title: 'ডামি আর্টিকেল ২' },
-        { id: 3, title: 'ডামি আর্টিকেল ৩' },
-        { id: 4, title: 'ডামি আর্টিকেল ৪' },
-      ]
-    });
+  const handleCalendarChange = (date: Date | null) => {
+    if (date) {
+      const selectedDay = date.getDate();
+      const selectedMonth = months[date.getMonth()];
+      const selectedYear = date.getFullYear();
+  
+      setDay(selectedDay);
+      setMonth(selectedMonth);
+      setYear(selectedYear);
+      setSelectedDate(date);
+  
+      const formatted = `${selectedDay} ${selectedMonth} ${selectedYear} - ${category}`;
+  
+      setResults({
+        message: `ফলাফল দেখানো হচ্ছে: ${formatted}`,
+        items: [
+          { id: 1, title: 'ডামি আর্টিকেল ১' },
+          { id: 2, title: 'ডামি আর্টিকেল ২' },
+          { id: 3, title: 'ডামি আর্টিকেল ৩' },
+          { id: 4, title: 'ডামি আর্টিকেল ৪' },
+        ]
+      });
+    } else {
+      setResults(null); // If the date is cleared, reset the results
+    }
   };
+  
 
   return (
     <div className="grid grid-cols-12 gap-4 p-6 max-w-7xl mx-auto font-sans">

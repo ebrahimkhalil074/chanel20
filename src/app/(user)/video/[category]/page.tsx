@@ -1,16 +1,30 @@
-/* eslint-disable prettier/prettier */
-// pages/videos/[category].js
 
 'use client'
 
-import { useParams, useRouter, useSearchParams } from 'next/navigation';
+import { useParams, } from 'next/navigation';
 
 const CategoryVideos = () => {
-  const router = useRouter();
-  const searchParams = useSearchParams();
+  // const router = useRouter();
+  // const searchParams = useSearchParams();
   const {category} = useParams();
-  console.log(category)
-  const videos=[]
+
+  const videos=[
+    {
+      id:1,
+      videoUrl:'',
+      title:""
+    },
+    {
+      id:1,
+      videoUrl:'',
+      title:""
+    },
+    {
+      id:1,
+      videoUrl:'',
+      title:""
+    }
+  ]
 
   return (
     <div className="p-4">
@@ -27,7 +41,7 @@ const CategoryVideos = () => {
               <iframe
                 allowFullScreen
                 className="w-full h-64"
-                src={video.src}
+                src={video.videoUrl}
                 title={video.title}
               />
             </div>

@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import CategorySection from "@/src/components/Category";
 
 const ProgramPage = () => {

@@ -1,10 +1,10 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+
 'use client'
 import FlexCard from "@/src/components/Card/FlexCard";
 import SmallCard from "@/src/components/Card/SmallCard";
 import Slider2 from "@/src/components/Slider2";
 import Tag from "@/src/components/Tag";
-import {  Image } from "@heroui/react";
+import {  Button, Image } from "@heroui/react";
 import { useParams } from "next/navigation";
 import { useState } from "react";
 
@@ -116,22 +116,22 @@ const [active, setActive] = useState('সর্বশেষ');
 </div>
 
 <div className="flex justify-evenly items-center">
-      <h1
+      <Button
         className={`cursor-pointer p-4 w-full h-full text-center flex items-center justify-center border 
         ${active === 'সর্বশেষ' ? 'bg-red-500 text-white' : 'bg-white text-black'}`}
         onClick={() => setActive('সর্বশেষ')}
       >
         সর্বশেষ
-      </h1>
+      </Button>
 
      
-      <h1
+      <Button
         className={`cursor-pointer p-4 w-full h-full text-center flex items-center justify-center border 
         ${active === 'জনপ্রিয়' ? 'bg-red-500 text-white' : 'bg-white text-black'}`}
         onClick={() => setActive('জনপ্রিয়')}
       >
         জনপ্রিয়
-      </h1>
+      </Button>
     </div>
     <div className="flex flex-col gap-4">
    {
