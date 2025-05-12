@@ -1,6 +1,5 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+
 "use client";
 import { Image } from "@heroui/image";
 import { useState } from "react";
@@ -9,9 +8,7 @@ import SmallCard from "./Card/SmallCard";
 import Tag from "./Tag";
 import FlexCard from "./Card/FlexCard";
 import Slider2 from "./Slider2";
-
-/* eslint-disable prettier/prettier */
-const NewsDetails = ({data}) => {
+const NewsDetails = ({data}:{data:any}) => {
 const dessData =[
   {
     "id": 1,
@@ -20,7 +17,7 @@ const dessData =[
     "description": "আজ সকাল থেকে শুরু হওয়া বৃষ্টিপাতে ঢাকার প্রধান সড়কগুলোতে পানি জমে গেছে। এতে যান চলাচলে ব্যাঘাত ঘটেছে এবং অফিসগামী মানুষকে চরম দুর্ভোগে পড়তে হয়েছে। আবহাওয়া অধিদপ্তর জানিয়েছে, আগামী ২৪ ঘণ্টায় আরও বৃষ্টির সম্ভাবনা রয়েছে।",
     "category": "আবহাওয়া",
     "date": "2025-05-09T10:00:00+06:00",
-    "image": "https://example.com/images/rain.jpg"
+    "image": "https://heroui.com/images/hero-card-complete.jpeg"
   },
   {
     "id": 2,
@@ -29,7 +26,7 @@ const dessData =[
     "description": "তিন ম্যাচের টি-২০ সিরিজে ২-১ ব্যবধানে জয় পেয়েছে বাংলাদেশ। শেষ ম্যাচে সৌম্য সরকার ও মুস্তাফিজুর রহমান দুর্দান্ত খেলেছেন। ম্যাচ শেষে অধিনায়ক জানান, এটি দলের আত্মবিশ্বাস বৃদ্ধিতে বড় ভূমিকা রাখবে।",
     "category": "খেলাধুলা",
     "date": "2025-05-08T18:30:00+06:00",
-    "image": "https://example.com/images/cricket.jpg"
+    "image": "https://heroui.com/images/hero-card-complete.jpeg"
   },
   {
     "id": 3,
@@ -38,7 +35,7 @@ const dessData =[
     "description": "ঢাকা বিশ্ববিদ্যালয়ের 'ক' ইউনিটের ফলাফল প্রকাশ হয়েছে। মোট ৪৫ হাজার পরীক্ষার্থীর মধ্যে ৭ হাজার ৫০০ জন উত্তীর্ণ হয়েছে। শিক্ষার্থীরা বিশ্ববিদ্যালয়ের ওয়েবসাইটে গিয়ে ফলাফল দেখতে পারবেন।",
     "category": "শিক্ষা",
     "date": "2025-05-07T12:00:00+06:00",
-    "image": "https://example.com/images/admission.jpg"
+    "image": "https://heroui.com/images/hero-card-complete.jpeg"
   },
   {
     "id": 4,
@@ -47,7 +44,7 @@ const dessData =[
     "description": "বাংলাদেশের আইটি খাতে রপ্তানি আয় বেড়ে দাঁড়িয়েছে ৫০০ মিলিয়ন ডলারে। এই প্রবৃদ্ধির জন্য প্রধান অবদান রেখেছে ফ্রিল্যান্সিং, সফটওয়্যার সার্ভিস এবং বিজনেস প্রসেস আউটসোর্সিং (BPO)। সরকার এই সাফল্যে সন্তোষ প্রকাশ করেছে।",
     "category": "অর্থনীতি",
     "date": "2025-05-06T09:15:00+06:00",
-    "image": "https://example.com/images/tech-export.jpg"
+    "image": "https://heroui.com/images/hero-card-complete.jpeg"
   },
   {
     "id":6,
@@ -56,11 +53,10 @@ const dessData =[
     "description": "কমলাপুর স্টেশনে ট্রেনের টিকিট কিনতে ভোর থেকে মানুষ লাইনে দাঁড়িয়েছে। বিভিন্ন গন্তব্যের টিকিট দ্রুত শেষ হয়ে যাচ্ছে। বাংলাদেশ রেলওয়ে জানিয়েছে, টিকিট বিক্রির জন্য অতিরিক্ত কাউন্টার খোলা হয়েছে এবং অনলাইনে টিকিট বিক্রিও চলবে।",
     "category": "জাতীয়",
     "date": "2025-05-05T08:00:00+06:00",
-    "image": "https://example.com/images/train-ticket.jpg"
+    "image": "https://heroui.com/images/hero-card-complete.jpeg"
   }
 ]
 
-  console.log(data)
   const [active, setActive] = useState('first');
   const filteredData =
   active === 'first'
@@ -132,8 +128,12 @@ const dessData =[
 {/* aro sonbad */}
 <div className="mt-4">
   <Tag tag='আরও সংবাদ'/>
-
-  <FlexCard />
+</div>
+<div>
+  <h1>hi</h1>
+  {
+    dessData.map(item => <FlexCard key={item.id}data={item} />)
+  }
 </div>
 
        

@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 'use client';
 
 import React from 'react';
@@ -27,7 +27,7 @@ const Slider = ({ slideData }:{ slideData :any}) => {
       modules={[Autoplay, Pagination, Navigation]}
       pagination={{ clickable: true }}
     >
-      {slideData?.map((slide) => (
+      {slideData?.map((slide:any) => (
         <SwiperSlide key={slide.id}>
           <div className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col items-center text-center p-4">
             <Image

@@ -2,6 +2,8 @@ import * as React from "react";
 
 import { IconSvgProps } from "@/src/types";
 
+
+
 export const Logo: React.FC<IconSvgProps> = ({
   size = 36,
   width,
@@ -197,8 +199,13 @@ export const AcmeLogo = () => {
     </svg>
   );
 };
-
-export const ChevronDown = ({fill, size, height, width, ...props}) => {
+type IconProps = React.SVGProps<SVGSVGElement> & {
+  fill?: string;
+  size?: number;
+  height?: number;
+  width?: number;
+};
+export const ChevronDown: React.FC<IconProps> = ({fill, size, height, width, ...props}) => {
   return (
     <svg
       fill="none"
@@ -220,7 +227,7 @@ export const ChevronDown = ({fill, size, height, width, ...props}) => {
   );
 };
 
-export const Lock = ({fill, size, height, width, ...props}) => {
+export const Lock: React.FC<IconProps> = ({fill, size, height, width, ...props}) => {
   const color = fill;
 
   return (
@@ -267,7 +274,7 @@ export const Lock = ({fill, size, height, width, ...props}) => {
   );
 };
 
-export const Activity = ({fill, size, height, width, ...props}) => {
+export const Activity: React.FC<IconProps> = ({fill, size, height, width, ...props}) => {
   return (
     <svg
       height={size || height || 24}
@@ -292,7 +299,7 @@ export const Activity = ({fill, size, height, width, ...props}) => {
   );
 };
 
-export const Flash = ({fill = "currentColor", size, height, width, ...props}) => {
+export const Flash: React.FC<IconProps> = ({fill = "currentColor", size, height, width, ...props}) => {
   return (
     <svg
       fill="none"
@@ -314,7 +321,7 @@ export const Flash = ({fill = "currentColor", size, height, width, ...props}) =>
   );
 };
 
-export const Server = ({fill = "currentColor", size, height, width, ...props}) => {
+export const Server: React.FC<IconProps> = ({fill = "currentColor", size, height, width, ...props}) => {
   return (
     <svg
       fill="none"
@@ -335,7 +342,7 @@ export const Server = ({fill = "currentColor", size, height, width, ...props}) =
   );
 };
 
-export const TagUser = ({fill = "currentColor", size, height, width, ...props}) => {
+export const TagUser: React.FC<IconProps> = ({fill = "currentColor", size, height, width, ...props}) => {
   return (
     <svg
       fill="none"
@@ -364,7 +371,7 @@ export const TagUser = ({fill = "currentColor", size, height, width, ...props}) 
   );
 };
 
-export const Scale = ({fill = "currentColor", size, height, width, ...props}) => {
+export const Scale: React.FC<IconProps> = ({fill = "currentColor", size, height, width, ...props}) => {
   return (
     <svg
       fill="none"

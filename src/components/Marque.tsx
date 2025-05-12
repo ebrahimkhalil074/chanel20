@@ -1,11 +1,16 @@
-/* eslint-disable prettier/prettier */
 import Marquee from "react-fast-marquee";
 import { FaRegNewspaper } from "react-icons/fa";
 
+type NewsItem = {
+  title: string;
+};
 
+interface MarqueProps {
+  data: NewsItem[];
+  title: string;
+}
 
-
-export default function Marque({data,title}:{data:any,title:any}) {
+export default function Marque({ data, title }: MarqueProps) {
   return (
     <div className="flex items-center bg-red-100 text-red-800 py-2 px-4 border-b border-red-300">
       {/* Fixed label */}
@@ -18,7 +23,9 @@ export default function Marque({data,title}:{data:any,title:any}) {
       <div className="flex-1 overflow-hidden">
         <Marquee pauseOnHover gradient={false} speed={50}>
           {data.map((item, index) => (
-            <span key={index} className="mx-6">{item.title}</span>
+            <span key={index} className="mx-6">
+              {item.title}
+            </span>
           ))}
         </Marquee>
       </div>

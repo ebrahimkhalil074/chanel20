@@ -1,11 +1,12 @@
-/* eslint-disable prettier/prettier */
+
 import React, { useEffect, useState } from 'react';
 import { formatInTimeZone } from 'date-fns-tz';
 import { bn } from 'date-fns/locale';
-import { FaLocationArrow } from 'react-icons/fa';
 
 // Convert English digits to Bangla
-const toBanglaDigits = (str) => str.replace(/\d/g, d => "০১২৩৪৫৬৭৮৯"[d]);
+const toBanglaDigits = (str: string): string => {
+  return str.replace(/\d/g, (d) => "০১২৩৪৫৬৭৮৯"[parseInt(d)]);
+};
 
 const Somoy = () => {
   const [now, setNow] = useState(new Date());

@@ -1,5 +1,5 @@
-/* eslint-disable prettier/prettier */
-const Tag = ({tag}) => {
+
+const Tag = ({tag}:{tag:string}) => {
   return (
     <div>
       <div className="bg-red-600 inline-block text-white px-2 py-1 text-sm font-semibold">{tag}</div>

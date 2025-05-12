@@ -1,8 +1,10 @@
-/* eslint-disable prettier/prettier */
+
 import { Card, CardHeader, CardBody, Image } from "@heroui/react";
-const LongCard = () => {
+import Link from "next/link";
+const LongCard = (data:any) => {
   return (
     <div>
+      <Link href={`/news/${data.id}`}>
       <Card className="py-4">
        
         <CardBody className="overflow-visible h-full w-full py-2">
@@ -19,7 +21,7 @@ const LongCard = () => {
           <small className="text-default-500">12 Tracks</small>
           <h4 className="font-bold text-large">Frontend Radio Frontend Radio Frontend Radio Frontend Radio Frontend Radio</h4>
         </CardHeader>
-      </Card>
+      </Card></Link>
     </div>
   );
 };

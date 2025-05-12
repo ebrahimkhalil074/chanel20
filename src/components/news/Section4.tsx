@@ -1,21 +1,14 @@
-// export default Section1;
 
-/* eslint-disable prettier/prettier */
 'use client'
 
 import Tag from "../Tag";
 import FlexCard from "../Card/FlexCard";
 import MiddleCard from "../Card/MiddleCard";
 
-import img from "@/src/assets/banner-logo-45db0059.png";
 
 
 const Section4 = () => {
-  const slideData = [
-    { id: 1, title: "Slide 1", image: img.src },
-    { id: 2, title: "Slide 2", image: img.src },
-    { id: 3, title: "Slide 3", image: img.src },
-  ];
+  
   const dessData =[
     {
       "id": 1,

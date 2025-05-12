@@ -10,7 +10,7 @@ import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import { EffectFade, Navigation, Pagination, Autoplay } from "swiper/modules";
+import { EffectFade,Pagination, Autoplay } from "swiper/modules";
 
 export default function Slider2() {
   const images = [
@@ -22,11 +22,10 @@ export default function Slider2() {
   return (
     <div className="w-full max-w-sm mx-auto relative z-10">
       <Swiper
-        navigation
         autoplay={{ delay: 2500, disableOnInteraction: false }}
         className="rounded overflow-hidden"
         effect="fade"
-        modules={[EffectFade, Navigation, Pagination, Autoplay]}
+        modules={[EffectFade,  Pagination, Autoplay]}
         pagination={{ clickable: true }}
         spaceBetween={20}
       >

@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import Filtering from "@/src/components/Filtering";
 import Section1 from "@/src/components/news/Section1";
 import Slider from "@/src/components/Slider";
@@ -7,7 +7,7 @@ import Section2 from "@/src/components/news/Section2";
 import Section3 from "@/src/components/news/Section3";
 import Section4 from "@/src/components/news/Section4";
 
-/* eslint-disable prettier/prettier */
+
 const NewsPage = () => {
 
 

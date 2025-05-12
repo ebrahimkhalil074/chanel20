@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import axios from "axios";
 import { cookies } from "next/headers";
 
@@ -10,8 +10,8 @@ const axiosInstance = axios.create({
 });
 
 axiosInstance.interceptors.request.use(
-  function (config) {
-    const cookieStore = cookies();
+  async function (config) {
+    const cookieStore = await cookies();
     const accessToken = cookieStore.get("accessToken")?.value;
 
     if (accessToken) {
@@ -39,7 +39,9 @@ axios.interceptors.response.use(
 
       config.headers["Authorization"] = accessToken;
       // Update the access token in the cookie store
-      cookies().set("accesstoken", accessToken);
+      (await
+        // Update the access token in the cookie store
+        cookies()).set("accesstoken", accessToken);
 
       return axiosInstance(config);
     }

@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 "use client";
 
 import type { ThemeProviderProps } from "next-themes";

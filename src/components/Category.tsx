@@ -1,9 +1,13 @@
-/* eslint-disable prettier/prettier */
-// components/CategorySection.js
+
 "use client";
 import Link from "next/link";
 
-const CategorySection = ({ title, items, categorySlug }:{ title:any, items:any, categorySlug :any}) => (
+interface CategorySectionProps {
+  title: string;
+  items: { id: string; videoUrl: string; title: string }[];
+  categorySlug: string;
+}
+const CategorySection = ({ title, items, categorySlug }: CategorySectionProps) => (
   <div className="mb-8">
     <div className="flex justify-center items-center">
     <h2 className="text-2xl font-bold text-white m-3 bg-red-500 p-4 rounded-md ">{title}</h2>

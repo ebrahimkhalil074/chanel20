@@ -1,7 +1,7 @@
-/* eslint-disable prettier/prettier */
-import {Card, CardFooter, Image, Button, } from "@heroui/react";
+
+import {Card, CardFooter, Image,  } from "@heroui/react";
 import Link from "next/link";
-const ImageCard = ({data}) => {
+const ImageCard = ({data}:any) => {
   return (
     <div>
      <Link href={`/news/${data.id}`} >

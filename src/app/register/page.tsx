@@ -13,6 +13,7 @@ import CtForm from "@/src/components/form/CtFrom";
 import CtInput from "@/src/components/form/CtInput";
 import { useUserRegisration } from "@/src/hooks/auth.hook";
 import CtCheckbox from "@/src/components/form/CtChekeBox";
+import { LinkIcon } from "@heroui/link";
 
 
 export default function RegisterPage() {
@@ -63,12 +64,16 @@ export default function RegisterPage() {
               type="password"
             />
           </div>
+          <div className="flex justify-start items-center">
           <div className="py-3">
             <CtCheckbox
-              label="cheked"
+              label ='I have read the '
               name="see"
               
             />
+          </div>
+<Link href={'/privacy'}> <h1 className="ml-2 text-blue-500 underline"> Privacy Policy</h1></Link>
+         
           </div>
 
           <Button

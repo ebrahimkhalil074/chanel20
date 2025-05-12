@@ -1,8 +1,8 @@
-/* eslint-disable prettier/prettier */
+
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
 
-const SmallCard = ({data}) => {
+const SmallCard = ({data}:any) => {
   return (
     <div>
       <Link href={`/news/${data.id}`}>
