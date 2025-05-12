@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+ 
 "use server";
 
 import { jwtDecode } from "jwt-decode";
@@ -25,7 +25,7 @@ export const userLogin = async (userData: FieldValues) => {
   try {
     const { data } = await axiosInstance.post("/auth/login", userData);
 
-    console.log(data);
+
 
     if (data.success) {
       (await cookies()).set("accessToken", data?.data?.accessToken);
@@ -49,12 +49,12 @@ export const Logout = async () => {
 export const getCurrentUser = async () => {
   const accessToken = (await cookies()).get("accessToken")?.value;
 
-  console.log(accessToken);
+
   let decodedToken = null;
 
   if (accessToken) {
     decodedToken = await jwtDecode(accessToken);
-    console.log(decodedToken);
+
 
     return {
       email: decodedToken.email,
@@ -82,6 +82,6 @@ export const getNewRefreshToken = async () => {
 
     return res?.data;
   } catch (error) {
-    throw new Error("failed to get new refresh token");
+    throw new Error("failed to get new refresh token",);
   }
 };

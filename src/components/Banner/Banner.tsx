@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+ 
 import { Image } from "@heroui/image";
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube, FaGithub } from 'react-icons/fa';
 

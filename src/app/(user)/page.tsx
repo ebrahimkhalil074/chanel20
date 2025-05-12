@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+ 
 import { Image } from "@heroui/image";
 
 import Marque from "@/src/components/Marque";

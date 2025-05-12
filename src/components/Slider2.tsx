@@ -1,7 +1,7 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable import/order */
+ 
+ 
 /* eslint-disable @next/next/no-img-element */
-/* eslint-disable prettier/prettier */
+ 
 "use client";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";

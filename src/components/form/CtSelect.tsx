@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+ 
 import { Select, SelectItem } from "@heroui/select";
 import { useFormContext } from "react-hook-form";
 

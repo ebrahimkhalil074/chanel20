@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+ 
 import { useMutation } from "@tanstack/react-query";
 import { FieldValues } from "react-hook-form";
 import { toast } from "sonner";

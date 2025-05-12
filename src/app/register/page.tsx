@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 "use client";
 
 import { Button } from "@heroui/button";
@@ -13,16 +13,15 @@ import CtForm from "@/src/components/form/CtFrom";
 import CtInput from "@/src/components/form/CtInput";
 import { useUserRegisration } from "@/src/hooks/auth.hook";
 import CtCheckbox from "@/src/components/form/CtChekeBox";
-import { LinkIcon } from "@heroui/link";
+
 
 
 export default function RegisterPage() {
-  const { mutate, isPending, isError, data, isSuccess } = useUserRegisration();
+  const { mutate, isPending, isError, isSuccess } = useUserRegisration();
   const router = useRouter();
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     const userData = { ...data };
 
-    console.log("Inside form user data: ", userData);
     mutate(userData);
   };
 

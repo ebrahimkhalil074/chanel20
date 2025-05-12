@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 "use client";
 
 import Link from "next/link";
@@ -9,7 +8,6 @@ import { Button } from "@heroui/button";
 import { useUserLogin } from "@/src/hooks/auth.hook";
 import CtForm from "@/src/components/form/CtFrom";
 import CtInput from "@/src/components/form/CtInput";
-import { useUser } from "@heroui/react";
 
 
 const LoginPage = () => {
@@ -20,10 +18,10 @@ const LoginPage = () => {
   const { mutate, isPending, isSuccess, isError } = useUserLogin();
 
   if (isError) {
-    console.error(isError);
+   
   }
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    console.log(data);
+  
     mutate(data);
     // setIsLoading(true);
   };

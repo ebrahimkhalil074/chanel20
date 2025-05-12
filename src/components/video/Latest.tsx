@@ -1,7 +1,6 @@
 "use client";
 import { useRouter } from "next/router";
-/* eslint-disable prettier/prettier */
-import { useState } from "react";
+ 
 
 const Latest = () => {
   const videoData = [
