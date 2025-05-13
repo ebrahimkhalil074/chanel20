@@ -154,7 +154,7 @@ export const Navbar = () => {
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
-            <Image width={200} height={100} alt='logo'  src={Logo.src} />
+            <Image width={50} height={50} alt='logo'  src={Logo.src} />
           </NextLink>
         </NavbarBrand>
 
