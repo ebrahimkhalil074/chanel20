@@ -256,7 +256,7 @@ const NewsDetails = ({ data }: { data: any }) => {
 
             {/* ✅ React Share */}
             <div className="flex gap-2">
-              <FacebookShareButton url={currentUrl} quote={data?.title}>
+              <FacebookShareButton url={currentUrl}>
                 <FacebookIcon size={32} round />
               </FacebookShareButton>
 

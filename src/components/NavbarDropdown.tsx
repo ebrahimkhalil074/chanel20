@@ -52,7 +52,7 @@ const NavbarDropdown = () => {
     <div>
       <Dropdown>
         <DropdownTrigger>
-            <Avatar className="cursor-pointer" src={session?.user?.image } />
+            <Avatar className="cursor-pointer" src={session?.user?.image as string } />
         </DropdownTrigger>
         <DropdownMenu aria-label="User Menu" disabledKeys={["edit"]}>
           {menuItems}

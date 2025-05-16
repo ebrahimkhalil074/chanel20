@@ -1,10 +1,12 @@
 import { createContext, ReactNode } from "react";
-
- export const UserContext =createContext(undefined)
+ type TValue ={
+    name:string
+ }
+ export const UserContext =createContext<TValue | undefined> (undefined)
 const UserProvider =({children}: { children: ReactNode })=>{
     
 
-    const values ={
+    const values:TValue ={
         name:'fg'
     }
     return(
