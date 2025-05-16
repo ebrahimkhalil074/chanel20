@@ -13,6 +13,7 @@ import CtForm from "@/src/components/form/CtFrom";
 import CtInput from "@/src/components/form/CtInput";
 import { useUserRegisration } from "@/src/hooks/auth.hook";
 import CtCheckbox from "@/src/components/form/CtChekeBox";
+import { signIn } from "next-auth/react";
 
 
 
@@ -102,6 +103,11 @@ export default function RegisterPage() {
             Registration successful! Welcome!
           </p>
         )}
+      </div>
+      <div>
+      <Button onPress={() => signIn("google",{
+          callbackUrl:"http://localhost:3000"
+        })}>Google</Button>
       </div>
     </div>
   );

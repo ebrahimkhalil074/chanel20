@@ -8,7 +8,7 @@ import { Button } from "@heroui/button";
 import { useUserLogin } from "@/src/hooks/auth.hook";
 import CtForm from "@/src/components/form/CtFrom";
 import CtInput from "@/src/components/form/CtInput";
-
+import { useSession, signIn, signOut } from "next-auth/react"
 const Login = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -53,7 +53,7 @@ const Login = () => {
             </Link>
           </div>
         </div>
-        
+       
       </div>
     </>
   );

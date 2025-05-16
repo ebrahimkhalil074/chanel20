@@ -25,10 +25,7 @@ export const siteConfig = {
       label: "Archive",
       href: "/archive",
     },
-    {
-      label: "Login",
-      href: "/login",
-    },
+    
   ],
   navMenuItems: [
     {
