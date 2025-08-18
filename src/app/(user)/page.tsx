@@ -7,7 +7,6 @@ import logo from '../../assets/footer-logo-4d56d219.png'
 import { useGetAllArticale } from "@/src/hooks/articale.hook";
 import { useGetLiveVideo } from "@/src/hooks/live.hook";
 import LiveVideoSection from "@/src/components/skeleton/LiveVideoSkeleton";
-import MarqueAll from "@/src/components/marqueAll";
 const HomePage = () => {
   
 const {data} =useGetAllArticale(undefined);

@@ -1,5 +1,4 @@
 import Marquee from "react-fast-marquee";
-import { FaRegNewspaper } from "react-icons/fa";
 
 type NewsItem = {
   title: string;

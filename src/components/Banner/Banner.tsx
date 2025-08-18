@@ -213,7 +213,6 @@ import { useState } from "react";
 import { Image } from "@heroui/image";
 import {
   FaFacebookF,
-  FaTwitter,
   FaInstagram,
   FaLinkedinIn,
   FaYoutube,

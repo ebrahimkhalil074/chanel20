@@ -3,7 +3,6 @@ import {
   DropdownTrigger,
   DropdownMenu,
   DropdownItem,
-  Button,
   Avatar,
 } from "@heroui/react";
 import { useCustomSession } from "../context/sessonContext";

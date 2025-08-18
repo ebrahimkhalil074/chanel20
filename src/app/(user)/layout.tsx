@@ -1,6 +1,8 @@
 import MarqueAll from "@/src/components/marqueAll";
 
-const Layout = ({children}) => {
+const Layout = ({children}: {
+  children: React.ReactNode;
+}) => {
   return (
     <div>
         <MarqueAll />
