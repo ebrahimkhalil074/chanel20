@@ -18,6 +18,6 @@ export const getArticle =async(id:string)=>{
         const {data} =await axiosInstance.get(`/api/articles/${id}`);
         return data
     } catch (error) {
-        throw new ApiError(500,'error')
+        throw new ApiError(500,`error ${error}`,)
     }
 }

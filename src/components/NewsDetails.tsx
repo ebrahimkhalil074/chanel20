@@ -201,7 +201,7 @@ console.log(active)
           {/* Categories */}
           {data.categories && (
             <div className="mb-4 flex flex-wrap gap-2">
-              {data.categories.map((cat) => (
+              {data.categories.map((cat:any) => (
                 <span
                   key={cat.id}
                   className="bg-blue-100 text-blue-700 text-sm px-3 py-1 rounded-full"
@@ -294,7 +294,7 @@ console.log(active)
 
         {/* More FlexCards */}
         <div className="space-y-4">
-          {articleData.map((item) => (
+          {articleData.map((item:any) => (
             <FlexCard key={item.id} data={item} />
           ))}
         </div>

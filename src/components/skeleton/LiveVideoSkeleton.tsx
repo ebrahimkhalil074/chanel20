@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import Marque from "../Marque";
 
 
-export default function LiveVideoSection({ liveVideoData, newsItems, logo }) {
+export default function LiveVideoSection({ liveVideoData, newsItems, logo }:{ liveVideoData: any, newsItems: any[], logo: { src: string } }) {
   const [isVideoLoading, setIsVideoLoading] = useState(true);
   const [isImageLoading, setIsImageLoading] = useState(true);
 

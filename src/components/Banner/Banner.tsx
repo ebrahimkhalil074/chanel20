@@ -274,7 +274,7 @@ const Banner = () => {
         {/* Social Media Section */}
         <div className="bg-white bg-opacity-80 p-6 rounded-xl shadow-md text-center">
           <div className="flex justify-center gap-6 mb-4 text-2xl text-gray-700">
-            {data.slice(0, midIndex).map((item) => {
+            {data.slice(0, midIndex).map((item:any) => {
               const Icon = getPlatformIcon(item.platform);
               return (
                 <Link
@@ -294,7 +294,7 @@ const Banner = () => {
           <h2 className="text-lg font-bold text-gray-800">Follow Us</h2>
 
           <div className="flex justify-center gap-6 mt-4 text-2xl text-gray-700">
-            {data.slice(midIndex).map((item) => {
+            {data.slice(midIndex).map((item:any) => {
               const Icon = getPlatformIcon(item.platform);
               return (
                 <Link

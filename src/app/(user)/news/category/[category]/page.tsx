@@ -52,7 +52,7 @@ const daynamicData =dynamicQueryData?.data
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
         {
-          daynamicData?.map(item => <FlexCard key={item.id} data={item}/>)
+          daynamicData?.map((item:any) => <FlexCard key={item.id} data={item}/>)
         }
       </div>
       {/* add */}
@@ -62,7 +62,7 @@ const daynamicData =dynamicQueryData?.data
 {/*  */}
 <div className="grid grid-cols-1 md:grid-cols-4 gap-4 my-4">
         {
-          daynamicData?.map(item => <MiddleCard key={item.id} data={item}/>)
+          daynamicData?.map((item:any) => <MiddleCard key={item.id} data={item}/>)
         }
       </div>
     </div>
@@ -73,7 +73,7 @@ const daynamicData =dynamicQueryData?.data
    <Tag tag='সর্বাধিক পঠিত'/>
    </div>
     <div className="grid grid-cols-1 gap-4 mt-4 ">
-             {daynamicData?.map((item) => (
+             {daynamicData?.map((item:any) => (
                <FlexCard key={item.id} data={item} />
              ))}
            </div>
