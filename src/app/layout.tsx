@@ -1,18 +1,14 @@
-
 import "@/src/styles/globals.css";
 import { Metadata, Viewport } from "next";
-
 import clsx from "clsx";
-
-import Banner from "../components/Banner/Banner";
-import Marque from "../components/Marque";  
-
 import { Providers } from "./provider";
 
 import { siteConfig } from "@/src/config/site";
 import { fontSans } from "@/src/config/fonts";
+
+import Banner from "@/src/components/Banner/Banner";
 import { Navbar } from "@/src/components/navbar";
-import Footer from "../components/Footer";
+import Footer from "@/src/components/Footer";
 
 export const metadata: Metadata = {
   title: {
@@ -37,35 +33,33 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const newsItems = [
-    {title: "দেশজুড়ে বইমেলা শুরু হচ্ছে আগামী সপ্তাহে "},
-     {title:"ভারতের সঙ্গে নতুন বাণিজ্য চুক্তি স্বাক্ষরিত"},
-     {title:"ঢাকায় আজ বৃষ্টি হতে পারে"},
-     {title: "বিশ্বকাপে বাংলাদেশের পরবর্তী খেলা শুক্রবার"},
-     {title:"ই-কমার্স নীতিমালা চূড়ান্ত করেছে সরকার"}
-   ];
-
   return (
-    <html suppressHydrationWarning lang="en">
+    <html suppressHydrationWarning lang="bn">
       <head />
       <body
         className={clsx(
           "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable,
+          fontSans.variable
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="container mx-auto relative flex flex-col min-h-screen">
+          <div className="relative flex flex-col min-h-screen">
+            {/* Top Banner */}
             <Banner />
-            {/* Sticky Navbar */}
-            <div className="sticky top-0 z-50 bg-background shadow">
+
+            {/* Sticky Navbar with Marquee */}
+            <div className="sticky top-0 z-50 bg-background  ">
               <Navbar />
-              <Marque title='সর্বশেষ সংবাদ' data={newsItems} />
+            
             </div>
-            <main className="flex-grow">{children}</main>
-           
-             <Footer />
-          
+
+            {/* Page Content */}
+            <main className="flex-grow container mx-auto ">
+              {children}
+            </main>
+
+            {/* Footer */}
+            <Footer />
           </div>
         </Providers>
       </body>

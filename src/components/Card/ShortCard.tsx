@@ -4,15 +4,14 @@ import { Image } from "@heroui/image";
 import Link from "next/link";
 
 const ShortCard = ({data}:any) => {
-    
 
   return (
-   <div>
+   <div className=" p-1 shadow-md">
     <Link href={`/news/${data.id}`}>
-    <div className="shadow-md mt-2 ">
-      <Image height={150} src={data.image}
+    <div className=" ">
+      <Image height={80} width={1000} src={'https://i.ibb.co/pvPshCy3/OIPfdff.webp'}
 />
-      <h1 >{data.title.slice(0,50)}</h1>
+      <h1 >{data.title.slice()}...</h1>
     </div></Link>
    </div>
   );

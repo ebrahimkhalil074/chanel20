@@ -29,16 +29,14 @@ const Slider = ({ slideData }:{ slideData :any}) => {
     >
       {slideData?.map((slide:any) => (
         <SwiperSlide key={slide.id}>
-          <div className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col items-center text-center p-4">
+          <div className="bg-white h-[300px] rounded-sm shadow-md overflow-hidden flex flex-col items-center text-center p-4">
             <Image
               alt={slide.title}
               className="w-full h-auto object-contain max-h-[150px]"
               src={slide.image}
             />
             <h3 className="mt-4 text-lg font-semibold">{slide.title}</h3>
-            <button className="mt-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
-              Learn More
-            </button>
+           
           </div>
         </SwiperSlide>
       ))}

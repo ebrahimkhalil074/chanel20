@@ -6,10 +6,10 @@ const SmallCard = ({data}:any) => {
   return (
     <div>
       <Link href={`/news/${data.id}`}>
-      <div className="flex justify-between items-center border-b-2 border-red-500 p-4 rounded-md">
+      <div className="flex justify-between items-center border-b-2 border-red-500 p-2 rounded-md">
         <h1 className="font-bold">{data.title}</h1>
        <div className="text-red-500">
-       <FaArrowRight size={40} />
+       <FaArrowRight size={20} />
        </div>
       </div>
       </Link>

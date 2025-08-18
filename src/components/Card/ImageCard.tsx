@@ -1,23 +1,28 @@
-
-import {Card, CardFooter, Image,  } from "@heroui/react";
+import { Image } from "@heroui/image";
 import Link from "next/link";
-const ImageCard = ({data}:any) => {
+
+const ImageCard = ({ data }: any) => {
+  if (!data) return null;
+
   return (
-    <div>
-     <Link href={`/news/${data.id}`} >
-     <Card isFooterBlurred className="border-none" radius="lg">
-      <Image
-        alt="Woman listing to music"
-        className="object-cover"
-        src={data.image}
-        height={180}
-        width={1000}
-      />
-      <CardFooter className="before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
-        <p className="text-left text-white">{data.title.slice(0,100)}</p>
-      </CardFooter>
-    </Card></Link>
-    </div>
+    <Link href={`/news/${data.id}`}>
+      <div className="relative w-full h-[px] rounded overflow-hidden shadow hover:shadow-md transition-all group">
+        {/* Image */}
+        <Image
+          src='https://i.ibb.co/pvPshCy3/OIPfdff.webp'
+          width={1000}
+          className="object-cover w-full h-full"
+          alt={data?.title || "খবরের ছবি"}
+        />
+
+        {/* Overlay Title Centered Inside Image */}
+        <div className="absolute z-50 bottom-0 bg-black/40 flex items-center justify-center p-4 w-full rounded-lg">
+          <h1 className="text-white text-center text-md font-semibold line-clamp-2 drop-shadow-md">
+            {data?.title || "শিরোনাম পাওয়া যায়নি"}
+          </h1>
+        </div>
+      </div>
+    </Link>
   );
 };
 

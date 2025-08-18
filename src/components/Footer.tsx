@@ -159,19 +159,19 @@ const Footer = () => {
         <div className="text-center">
           <div className="flex justify-center gap-4 mb-4 text-2xl text-gray-700">
             <Link href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
-              <FaTwitter className="hover:text-blue-500" />
+              <FaTwitter className= "hover:text-blue-500 text-white" />
             </Link>
             <Link href="https://instagram.com/" target="_blank" rel="noopener noreferrer">
-              <FaInstagram className="hover:text-pink-500" />
+              <FaInstagram className="hover:text-pink-500 text-white" />
             </Link>
             <Link href="https://facebook.com/" target="_blank" rel="noopener noreferrer">
-              <FaFacebookF className="hover:text-blue-700" />
+              <FaFacebookF className="hover:text-blue-700 text-white" />
             </Link>
             <Link href="https://youtube.com/" target="_blank" rel="noopener noreferrer">
-              <FaYoutube className="hover:text-red-600" />
+              <FaYoutube className="hover:text-red-900 text-white" />
             </Link>
             <Link href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">
-              <FaLinkedinIn className="hover:text-blue-600" />
+              <FaLinkedinIn className="hover:text-blue-600 text-white" />
             </Link>
           </div>
           <h2 className="text-lg font-semibold text-white mb-2">Download Mobile App</h2>

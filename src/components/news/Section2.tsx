@@ -5,39 +5,41 @@ import LongCard from "../Card/LongCard";
 import ShortCard from "../Card/ShortCard";
 import Tag from "../Tag";
 import ImageCard from "../Card/ImageCard";
-import FlexCard from "../Card/FlexCard";
+import { useGetAllArticale } from "@/src/hooks/articale.hook";
 
-import img from "@/src/assets/banner-logo-45db0059.png";
+
 
 const Section2 = () => {
-  const slideData = [
-    { id: 1, title: "Slide 1", image: img.src },
-    { id: 2, title: "Slide 2", image:" https://heroui.com/images/hero-card-complete.jpeg" },
-    { id: 3, title: "Slide 2", image:" https://heroui.com/images/hero-card-complete.jpeg" },
-    { id: 4, title: "Slide 2", image:" https://heroui.com/images/hero-card-complete.jpeg" },
-    { id: 5, title: "Slide 3", image: img.src },
-  ];
+  const { data:crimeData, isLoading } = useGetAllArticale('অপরাধ');
+
+    const crime = crimeData?.data ?? [];
+    console.log('crime',crime)
+  const { data:internationalData, isLoading:iIsLoading } = useGetAllArticale('আন্তর্জাতিক');
+
+    const international = internationalData?.data ?? [];
+   
+ console.log({international})
 
   return (
-    <div className="grid grid-cols-12 gap-4 p-4 ">
+    <div className="grid grid-cols-12 gap-4 py-2">
       
       {/* frist Div - 50% */}
      
       <div className="col-span-12 lg:col-span-6 ">
-      <Tag tag='সামাজিক মিডিয়া'/>
+      <Tag tag='অপরাধ'/>
       <div className="flex flex-col lg:flex-row gap-2 mt-2">
          <div className="flex-1">
           <div className="grid grid-cols-1 gap-4">
             {
-              slideData?.slice(0,3).map(item =><ImageCard key={item.id} data={item}/>)
+              crime?.slice(0,3).map((item:any) =><ImageCard key={item.id} data={item}/>)
             }
           </div>
       
          </div>
          <div className="flex-1">
-           <div className="grid grid-cols-1 gap-2 ">
-             {slideData.map((item) => (
-               <FlexCard key={item.id} data={item} />
+           <div className="grid grid-cols-2 gap-2 ">
+             {crime?.slice(3,9)?.map((item:any) => (
+               <ShortCard key={item.id} data={item} />
              ))}
            </div>
          </div>
@@ -47,17 +49,17 @@ const Section2 = () => {
       <div className="col-span-12 lg:col-span-6 p-2">
        
        <div className="mb-2">
-        <Tag tag='জাতীয়'/>
+        <Tag tag='আন্তর্জাতিক'/>
        </div>
 
        {/* Content Grid */}
        <div className="flex flex-col lg:flex-row gap-2">
          <div className="flex-1">
-           <LongCard />
+       {  international.length > 0 && <LongCard key={international[0].id} data={international[0]} />}
          </div>
          <div className="flex-1">
-           <div className="grid grid-cols-2 gap-2 ">
-             {slideData.map((item) => (
+           <div className="">
+             {international?.slice(1,5)?.map((item:any) => (
                <ShortCard key={item.id} data={item} />
              ))}
            </div>

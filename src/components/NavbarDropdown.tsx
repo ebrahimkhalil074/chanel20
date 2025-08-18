@@ -4,11 +4,12 @@ import {
   DropdownMenu,
   DropdownItem,
   Button,
+  Avatar,
 } from "@heroui/react";
 import { useCustomSession } from "../context/sessonContext";
 import { useRouter } from "next/navigation";
 import { signOut } from "next-auth/react";
-import { Avatar } from "@nextui-org/avatar";
+
 
 const NavbarDropdown = () => {
   const router = useRouter();

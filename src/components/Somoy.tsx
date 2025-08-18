@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import { formatInTimeZone } from 'date-fns-tz';
 import { bn } from 'date-fns/locale';
-
+import { FaCalendar, FaLocationDot } from "react-icons/fa6";
+import { FaClock } from 'react-icons/fa';
 // Convert English digits to Bangla
 const toBanglaDigits = (str: string): string => {
   return str.replace(/\d/g, (d) => "০১২৩৪৫৬৭৮৯"[parseInt(d)]);
@@ -31,10 +32,10 @@ const Somoy = () => {
   );
 
   return (
-    <div className="text-center p-4 bg-gray-100 rounded shadow text-lg font-semibold space-y-1">
-      <div> ঢাকা</div>
-      <div>🕒: {toBanglaDigits(formattedDate)}</div>
-      <div>🕒: {toBanglaDigits(formattedTime)}</div>
+    <div className="flex flex-wrap items-center justify-center  rounded shadow md:text-lg   gap-3 text-red-700 text-md">
+      <div className='flex items-center'><FaLocationDot /> ঢাকা</div>
+      <div className='flex items-center'><FaCalendar/>: {toBanglaDigits(formattedDate)}</div>
+      <div className='flex items-center'><FaClock />: {toBanglaDigits(formattedTime)}</div>
     </div>
   );
 };
