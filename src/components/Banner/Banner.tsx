@@ -207,9 +207,142 @@
 // export default Banner;
 
 
+// "use client";
+
+// import { useState } from "react";
+// import { Image } from "@heroui/image";
+// import {
+//   FaFacebookF,
+//   FaInstagram,
+//   FaLinkedinIn,
+//   FaYoutube,
+//   FaGithub,
+//   FaDownload,
+//   FaQuestionCircle,
+//   FaWhatsapp,
+// } from "react-icons/fa";
+// import { SiTiktok, SiSnapchat } from "react-icons/si";
+
+// import bannerImg from "@/src/assets/banner-logo-45db0059.png";
+// import scannerImg from "@/src/assets/qr-scanning-22cb3eea.gif";
+// import socalmedia from "@/src/assets/social-media-3ea23533.png";
+// import { useGetAllSocialMedia } from "@/src/hooks/social.hook";
+// import Link from "next/link";
+// import { FaX } from "react-icons/fa6";
+
+// const iconMap: Record<string, React.ElementType> = {
+//   facebook: FaFacebookF,
+//   twitter: FaX,
+//   instagram: FaInstagram,
+//   youtube: FaYoutube,
+//   whatsapp: FaWhatsapp,
+//   linkedin: FaLinkedinIn,
+//   github: FaGithub,
+//   tiktok: SiTiktok,
+//   snapchat: SiSnapchat,
+// };
+
+// const getPlatformIcon = (platform: string) => {
+//   const key = platform.toLowerCase();
+//   return iconMap[key] || FaQuestionCircle;
+// };
+
+// const Banner = () => {
+//   const [showScanner, setShowScanner] = useState(false);
+//   const { data = [], isLoading } = useGetAllSocialMedia();
+
+//   if (isLoading) {
+//     return <h1>Loading ...</h1>;
+//   }
+
+//   const midIndex = Math.ceil(data.length / 2);
+
+//   return (
+//     <div className="container mx-auto relative w-full bg-gradient-to-r from-white via-red-600 to-white py-6 px-4 overflow-hidden">
+//       <div className="flex justify-center z-10">
+//         <Image alt="Hero Banner" src={bannerImg.src} width={600} />
+//       </div>
+
+//       {/* Desktop View */}
+//       <div className="hidden md:flex flex-row-reverse absolute top-0 left-0 w-full h-full justify-between items-center px-8">
+//         {/* QR Section */}
+//         <div className="text-black font-semibold text-center items-center w-[200px] p-4">
+//           <h2 className="mb-2 text-sm mr-10">App Download</h2>
+//           <Image alt="QR Scanner" src={scannerImg.src} width={130} />
+//         </div>
+
+//         {/* Social Media Section */}
+//         <div className="bg-white bg-opacity-80 p-6 rounded-xl shadow-md text-center">
+//           <div className="flex justify-center gap-6 mb-4 text-2xl text-gray-700">
+//             {data.slice(0, midIndex).map((item:any) => {
+//               const Icon = getPlatformIcon(item.platform);
+//               return (
+//                 <Link
+//                   key={item.id}
+//                   href={item.link}
+//                   aria-label={item.platform}
+//                   target="_blank"
+//                   rel="noopener noreferrer"
+//                   className="hover:text-blue-500 transition"
+//                 >
+//                   <Icon />
+//                 </Link>
+//               );
+//             })}
+//           </div>
+
+//           <h2 className="text-lg font-bold text-gray-800">Follow Us</h2>
+
+//           <div className="flex justify-center gap-6 mt-4 text-2xl text-gray-700">
+//             {data.slice(midIndex).map((item:any) => {
+//               const Icon = getPlatformIcon(item.platform);
+//               return (
+//                 <Link
+//                   key={item.id}
+//                   href={item.link}
+//                   aria-label={item.platform}
+//                   target="_blank"
+//                   rel="noopener noreferrer"
+//                   className="hover:text-blue-500 transition"
+//                 >
+//                   <Icon />
+//                 </Link>
+//               );
+//             })}
+//           </div>
+//         </div>
+//       </div>
+
+//       {/* Mobile View */}
+//       <div className="md:hidden absolute inset-0 flex justify-between items-center px-4 z-20">
+//         <div>
+//           <Image src={socalmedia.src} width={80} alt="Social Media Icons" />
+//         </div>
+
+//         <div className="text-right">
+//           <button
+//             onClick={() => setShowScanner(!showScanner)}
+//             className="flex items-center gap-2 text-black px-4 py-2 rounded-md text-sm font-medium bg-white/80 shadow"
+//           >
+//             {showScanner ? "Hide QR" : <><span>App</span> <FaDownload size={16} /></>}
+//           </button>
+
+//           {showScanner && (
+//             <div className="mt-2 flex justify-end">
+//               <Image alt="QR Scanner" src={scannerImg.src} width={80} />
+//             </div>
+//           )}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Banner;
+
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { Image } from "@heroui/image";
 import {
   FaFacebookF,
@@ -222,14 +355,22 @@ import {
   FaWhatsapp,
 } from "react-icons/fa";
 import { SiTiktok, SiSnapchat } from "react-icons/si";
+import { FaX } from "react-icons/fa6";
+import Link from "next/link";
 
 import bannerImg from "@/src/assets/banner-logo-45db0059.png";
 import scannerImg from "@/src/assets/qr-scanning-22cb3eea.gif";
 import socalmedia from "@/src/assets/social-media-3ea23533.png";
 import { useGetAllSocialMedia } from "@/src/hooks/social.hook";
-import Link from "next/link";
-import { FaX } from "react-icons/fa6";
 
+// ---- Types ----
+type SocialMediaItem = {
+  id: string | number;
+  platform: string;
+  link: string;
+};
+
+// ---- Icon Mapping ----
 const iconMap: Record<string, React.ElementType> = {
   facebook: FaFacebookF,
   twitter: FaX,
@@ -242,39 +383,45 @@ const iconMap: Record<string, React.ElementType> = {
   snapchat: SiSnapchat,
 };
 
-const getPlatformIcon = (platform: string) => {
-  const key = platform.toLowerCase();
-  return iconMap[key] || FaQuestionCircle;
-};
-
 const Banner = () => {
   const [showScanner, setShowScanner] = useState(false);
   const { data = [], isLoading } = useGetAllSocialMedia();
 
-  if (isLoading) {
-    return <h1>Loading ...</h1>;
-  }
+  // Memoized split for performance
+  const [firstHalf, secondHalf] = useMemo(() => {
+    const midIndex = Math.ceil(data.length / 2);
+    return [data.slice(0, midIndex), data.slice(midIndex)];
+  }, [data]);
 
-  const midIndex = Math.ceil(data.length / 2);
+  // Memoized icon getter
+  const getPlatformIcon = useCallback((platform: string) => {
+    const key = platform?.toLowerCase();
+    return iconMap[key] || FaQuestionCircle;
+  }, []);
+
+  if (isLoading) {
+    return <h1 className="text-center py-6">Loading ...</h1>;
+  }
 
   return (
     <div className="container mx-auto relative w-full bg-gradient-to-r from-white via-red-600 to-white py-6 px-4 overflow-hidden">
+      {/* Center Logo */}
       <div className="flex justify-center z-10">
-        <Image alt="Hero Banner" src={bannerImg.src} width={600} />
+        <Image alt="Hero Banner Logo" src={bannerImg.src} width={600} />
       </div>
 
-      {/* Desktop View */}
+      {/* ---- Desktop View ---- */}
       <div className="hidden md:flex flex-row-reverse absolute top-0 left-0 w-full h-full justify-between items-center px-8">
         {/* QR Section */}
         <div className="text-black font-semibold text-center items-center w-[200px] p-4">
           <h2 className="mb-2 text-sm mr-10">App Download</h2>
-          <Image alt="QR Scanner" src={scannerImg.src} width={130} />
+          <Image alt="QR Code Scanner" src={scannerImg.src} width={130} />
         </div>
 
         {/* Social Media Section */}
-        <div className="bg-white bg-opacity-80 p-6 rounded-xl shadow-md text-center">
+        <div className="bg-white/80 p-6 rounded-xl shadow-md text-center">
           <div className="flex justify-center gap-6 mb-4 text-2xl text-gray-700">
-            {data.slice(0, midIndex).map((item:any) => {
+            {firstHalf.map((item: SocialMediaItem) => {
               const Icon = getPlatformIcon(item.platform);
               return (
                 <Link
@@ -294,7 +441,7 @@ const Banner = () => {
           <h2 className="text-lg font-bold text-gray-800">Follow Us</h2>
 
           <div className="flex justify-center gap-6 mt-4 text-2xl text-gray-700">
-            {data.slice(midIndex).map((item:any) => {
+            {secondHalf.map((item: SocialMediaItem) => {
               const Icon = getPlatformIcon(item.platform);
               return (
                 <Link
@@ -313,10 +460,10 @@ const Banner = () => {
         </div>
       </div>
 
-      {/* Mobile View */}
+      {/* ---- Mobile View ---- */}
       <div className="md:hidden absolute inset-0 flex justify-between items-center px-4 z-20">
         <div>
-          <Image src={socalmedia.src} width={80} alt="Social Media Icons" />
+          <Image src={socalmedia.src} width={80} alt="Social Media" />
         </div>
 
         <div className="text-right">
@@ -324,12 +471,18 @@ const Banner = () => {
             onClick={() => setShowScanner(!showScanner)}
             className="flex items-center gap-2 text-black px-4 py-2 rounded-md text-sm font-medium bg-white/80 shadow"
           >
-            {showScanner ? "Hide QR" : <><span>App</span> <FaDownload size={16} /></>}
+            {showScanner ? (
+              "Hide QR"
+            ) : (
+              <>
+                <span>App</span> <FaDownload size={16} />
+              </>
+            )}
           </button>
 
           {showScanner && (
             <div className="mt-2 flex justify-end">
-              <Image alt="QR Scanner" src={scannerImg.src} width={80} />
+              <Image alt="QR Code Scanner" src={scannerImg.src} width={80} />
             </div>
           )}
         </div>

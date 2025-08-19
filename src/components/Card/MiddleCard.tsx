@@ -1,6 +1,6 @@
 
-import { Image } from "@heroui/image";
-import { Link } from "@heroui/link";
+import Image from "next/image";
+import Link from "next/link";
 
 const MiddleCard = ({data}:any) => {
   return (
@@ -8,7 +8,12 @@ const MiddleCard = ({data}:any) => {
        <Link href={`/news/${data.id}`}>
        <div className=" h-full w-full">
      <div className="w-full">
-       <Image  height={80} width={1000} src={'https://i.ibb.co/pvPshCy3/OIPfdff.webp'}/>
+       <Image
+        height={80} 
+        width={1000} 
+        src={data?.banner}
+        alt={data?.title || "খবরের ছবি"}
+        />
      </div>
       <h1 className="font-bold">{data?.title.slice(0,20)}...</h1>
       <p>{data?.date.slice(0,10)}</p>

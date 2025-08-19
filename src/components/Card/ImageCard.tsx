@@ -1,22 +1,56 @@
-import { Image } from "@heroui/image";
+// import { Image } from "@heroui/image";
+// import Link from "next/link";
+
+// const ImageCard = ({ data }: any) => {
+//   if (!data) return null;
+// console.log("ImageCard data:", data);
+//   return (
+//     <Link href={`/news/${data.id}`}>
+//       <div className="relative w-full h-[px] rounded overflow-hidden shadow hover:shadow-md transition-all group">
+//         {/* Image */}
+//         <Image
+//           src={data?.banner}
+//           width={1000}
+//           className="object-cover w-full h-full"
+//           alt={data?.title || "খবরের ছবি"}
+//         />
+
+//         {/* Overlay Title Centered Inside Image */}
+//         <div className="absolute z-50 bottom-0 bg-black/40 flex items-center justify-center p-4 w-full rounded-lg">
+//           <h1 className="text-white text-center text-md font-semibold line-clamp-2 drop-shadow-md">
+//             {data?.title || "শিরোনাম পাওয়া যায়নি"}
+//           </h1>
+//         </div>
+//       </div>
+//     </Link>
+//   );
+// };
+
+// export default ImageCard;
+
+
+import Image from "next/image";
 import Link from "next/link";
 
 const ImageCard = ({ data }: any) => {
   if (!data) return null;
+  console.log("ImageCard data:", data);
 
   return (
     <Link href={`/news/${data.id}`}>
-      <div className="relative w-full h-[px] rounded overflow-hidden shadow hover:shadow-md transition-all group">
+      <div className="relative w-full rounded overflow-hidden shadow hover:shadow-md transition-all group">
         {/* Image */}
         <Image
-          src='https://i.ibb.co/pvPshCy3/OIPfdff.webp'
+          src={data?.banner}
           width={1000}
+          height={60}
           className="object-cover w-full h-full"
           alt={data?.title || "খবরের ছবি"}
+         
         />
 
-        {/* Overlay Title Centered Inside Image */}
-        <div className="absolute z-50 bottom-0 bg-black/40 flex items-center justify-center p-4 w-full rounded-lg">
+        {/* Overlay Title */}
+        <div className="absolute z-50 bottom-0 bg-black/40 flex items-center justify-center p-4 w-full">
           <h1 className="text-white text-center text-md font-semibold line-clamp-2 drop-shadow-md">
             {data?.title || "শিরোনাম পাওয়া যায়নি"}
           </h1>
@@ -27,3 +61,4 @@ const ImageCard = ({ data }: any) => {
 };
 
 export default ImageCard;
+

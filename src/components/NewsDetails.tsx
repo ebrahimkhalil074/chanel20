@@ -153,7 +153,7 @@
 
 
 "use client";
-import { Image } from "@heroui/image";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import SmallCard from "./Card/SmallCard";
 import Tag from "./Tag";
@@ -245,7 +245,10 @@ console.log(active)
 
         {/* Banner Image */}
         <div className="mt-4">
-          <Image alt="image" src={data?.banner} />
+          <Image
+          height={400}
+          width={1024}
+          alt="image" src={data?.banner} />
         </div>
 
         {/* News Content */}

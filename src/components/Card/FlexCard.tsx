@@ -21,7 +21,7 @@
 // export default FlexCard;
 
 
-import { Image } from "@heroui/image";
+import Image from "next/image";
 import Link from "next/link";
 
 const FlexCard = ({ data }: any) => {
@@ -33,8 +33,8 @@ const FlexCard = ({ data }: any) => {
           <Image
             height={80}
             width={130}
-            // src={data?.banner || "/fallback.jpg"}
-            src="https://i.ibb.co/pvPshCy3/OIPfdff.webp"
+             src={data?.banner}
+            // src="https://i.ibb.co/pvPshCy3/OIPfdff.webp"
             alt={data?.title || "খবরের ছবি"}
             className="rounded object-cover w-[130px] h-[80px]"
           />

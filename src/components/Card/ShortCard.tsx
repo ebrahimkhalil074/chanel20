@@ -1,6 +1,5 @@
 
-
-import { Image } from "@heroui/image";
+import Image from "next/image";
 import Link from "next/link";
 
 const ShortCard = ({data}:any) => {
@@ -9,9 +8,13 @@ const ShortCard = ({data}:any) => {
    <div className=" p-1 shadow-md">
     <Link href={`/news/${data.id}`}>
     <div className=" ">
-      <Image height={80} width={1000} src={'https://i.ibb.co/pvPshCy3/OIPfdff.webp'}
+      <Image
+      height={60}
+      width={1000}
+      src={data?.banner}
+      alt={data?.title || "খবরের ছবি"}
 />
-      <h1 >{data.title.slice()}...</h1>
+      <h1 >{data.title}...</h1>
     </div></Link>
    </div>
   );

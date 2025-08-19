@@ -190,7 +190,6 @@
 // export default Section1;
 
 'use client'
-import { Image } from "@heroui/image";
 import { FaFacebookF, FaGithub, FaInstagram, FaLinkedinIn, FaTwitter, FaYoutube } from "react-icons/fa";
 
 import LongCard from "../Card/LongCard";
@@ -200,6 +199,7 @@ import img from "@/src/assets/FC-Banner-ad-1024x274.webp";
 import Somoy from "../Somoy";
 import Tag from "../Tag";
 import Slider2 from "../Slider2";
+import Image from "next/image";
 
 const SkeletonBox = ({ height = "h-[150px]" }: { height?: string }) => (
   <div className={`bg-gray-200 animate-pulse rounded ${height}`} />
@@ -229,7 +229,12 @@ const Section1 = ({national,isLoading}:{national:any,isLoading:any}) => {
 
       <Tag tag='R.N. TRADING LIMITED' bgColor="bg-green-500" borderColor="border-green-500" />
         <div className="my-4">
-          <Image src={img.src} />
+          <Image
+          width={1024}
+          height={274}
+          src={img.src} 
+          alt="Banner"
+          />
         </div>
 
         <div className="mb-2">

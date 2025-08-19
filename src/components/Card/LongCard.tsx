@@ -1,8 +1,9 @@
 
-import { Card, CardHeader, CardBody, Image } from "@heroui/react";
+import { Card, CardHeader, CardBody,} from "@heroui/react";
+import Image from "next/image";
 import Link from "next/link";
 const LongCard = (data:any) => {
-
+console.log("LongCard data:", data);
   return (
     <div >
       <Link href={`/news/${data?.data?.id}`}>
@@ -10,10 +11,11 @@ const LongCard = (data:any) => {
        
         <CardBody className="overflow-visible ">
           <Image
-            alt="Card background"
+            alt={data?.data?.title || "খবরের ছবি"}
             className="object-cover  rounded-xl border-2 border-red-500"
-            src={'https://i.ibb.co/pvPshCy3/OIPfdff.webp'}
-           height={200}
+            src={data?.banner}
+            height={200}
+            width={300}
           
           />
         </CardBody>

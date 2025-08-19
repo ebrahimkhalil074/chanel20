@@ -63,7 +63,7 @@ const Section3 = () => {
           </div>
           <div className="flex-1 ">
             <div className="">
-              {news.slice(1,6).map((item:any) => (
+              {news.slice(1,5).map((item:any) => (
                 <ShortCard key={item.id} data={item} />
               ))}
             </div>

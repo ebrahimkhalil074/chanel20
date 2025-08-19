@@ -98,11 +98,11 @@ export default function NewsDetailsPage({
 }) {
  const { id } = use(params)
 
- const {data} = useGetArticle(id);
+ const {data,isLoading} = useGetArticle(id);
  console.log(data)
 
-  if (!data) {
-    return <div className="h-screen flex justify-center items-center">নিউজ পাওয়া যায়নি।</div>;
+  if (isLoading) {
+    return <div className="h-screen flex justify-center items-center">নিউজ ...।</div>;
   }
 
   return (

@@ -27,6 +27,7 @@ const Section2 = () => {
      
       <div className="col-span-12 lg:col-span-6 ">
       <Tag tag='অপরাধ'/>
+      
       <div className="flex flex-col lg:flex-row gap-2 mt-2">
          <div className="flex-1">
           <div className="grid grid-cols-1 gap-4">
