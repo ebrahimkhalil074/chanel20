@@ -6,6 +6,7 @@ import ShortCard from "../Card/ShortCard";
 import Tag from "../Tag";
 import ImageCard from "../Card/ImageCard";
 import { useGetAllArticale } from "@/src/hooks/articale.hook";
+import FlexCard from "../Card/FlexCard";
 
 
 
@@ -38,9 +39,9 @@ const Section2 = () => {
       
          </div>
          <div className="flex-1">
-           <div className="grid grid-cols-2 gap-2 ">
+           <div className="grid grid-cols-1 gap-2 ">
              {crime?.slice(3,9)?.map((item:any) => (
-               <ShortCard key={item.id} data={item} />
+               <FlexCard key={item.id} data={item} />
              ))}
            </div>
          </div>
@@ -54,7 +55,7 @@ const Section2 = () => {
        </div>
 
        {/* Content Grid */}
-       <div className="flex flex-col lg:flex-row gap-2">
+       <div className="flex  gap-2">
          <div className="flex-1">
        {  international.length > 0 && <LongCard key={international[0].id} data={international[0]} />}
          </div>

@@ -9,8 +9,8 @@ const ShortCard = ({data}:any) => {
     <Link href={`/news/${data.id}`}>
     <div className=" ">
       <Image
-      height={60}
-      width={1000}
+      width={200}
+      height={10}
       src={data?.banner}
       alt={data?.title || "খবরের ছবি"}
 />

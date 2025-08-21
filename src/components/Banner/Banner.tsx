@@ -402,7 +402,6 @@ const Banner = () => {
   if (isLoading) {
     return <h1 className="text-center py-6">Loading ...</h1>;
   }
-
   return (
     <div className="container mx-auto relative w-full bg-gradient-to-r from-white via-red-600 to-white py-6 px-4 overflow-hidden">
       {/* Center Logo */}

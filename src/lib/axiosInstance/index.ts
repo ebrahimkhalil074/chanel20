@@ -8,7 +8,7 @@ import { cookies } from "next/headers";
 
 
 const axiosInstance = axios.create({
-  baseURL: envConfig.baseApi,
+  baseURL:"https://test.channeltwenty.com",
 });
 
 axiosInstance.interceptors.request.use(

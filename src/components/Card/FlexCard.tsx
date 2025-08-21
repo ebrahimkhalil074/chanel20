@@ -23,6 +23,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { FaClock } from "react-icons/fa";
 
 const FlexCard = ({ data }: any) => {
   return (
@@ -46,7 +47,10 @@ const FlexCard = ({ data }: any) => {
             {data?.title || "শিরোনাম পাওয়া যায়নি"}
           </h1>
           {/* Optional: তারিখ বা ক্যাটাগরি চাইলে এখানে দেখানো যাবে */}
-          {/* <p className="text-sm text-gray-500 mt-1">১ আগস্ট ২০২৫</p> */}
+          <div className="flex gap-2 items-center text-blue-500 dark:text-gray-400 mt-1">
+            <p><FaClock/></p>
+            <p className="text-sm  mt-1">{data?.date}</p>
+          </div>
         </div>
       </div>
     </Link>

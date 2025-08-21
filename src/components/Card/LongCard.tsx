@@ -13,9 +13,9 @@ console.log("LongCard data:", data);
           <Image
             alt={data?.data?.title || "খবরের ছবি"}
             className="object-cover  rounded-xl border-2 border-red-500"
-            src={data?.banner}
+            src={data?.data?.banner}
             height={200}
-            width={300}
+            width={1000}
           
           />
         </CardBody>
